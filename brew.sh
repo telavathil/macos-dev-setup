@@ -33,14 +33,13 @@ brew install findutils
 # Install GNU `sed`, overwriting the built-in `sed`.
 brew install gnu-sed
 # Install Bash 4.
-brew install bash
-brew install bash-completion2
-# We installed the new shell, now we have to activate it
-echo "Adding the newly installed shell to the list of allowed shells"
-# Prompts for password
-sudo bash -c 'echo /usr/local/bin/bash >> /etc/shells'
-# Change to the new shell, prompts for password
-chsh -s /usr/local/bin/bash
+# brew install bash
+# brew install bash-completion2
+# # We installed the new shell, now we have to activate it
+# # Prompts for password
+# sudo bash -c 'echo /usr/local/bin/bash >> /etc/shells'
+# # Change to the new shell, prompts for password
+# chsh -s /usr/local/bin/bash
 
 # Install `wget` with IRI support.
 brew install wget --with-iri
@@ -48,8 +47,8 @@ brew install wget --with-iri
 # Install RingoJS and Narwhal.
 # Note that the order in which these are installed is important;
 # see http://git.io/brew-narwhal-ringo.
-brew install ringojs
-brew install narwhal
+# brew install ringojs
+# brew install narwhal
 
 # Install Python
 brew install python
@@ -73,6 +72,10 @@ brew tap bramstein/webfonttools
 brew install sfnt2woff
 brew install sfnt2woff-zopfli
 brew install woff2
+
+#Install Dev fonts
+brew tap homebrew/cask-fonts
+brew cask install font-fira-code
 
 # Install some CTF tools; see https://github.com/ctfs/write-ups.
 brew install aircrack-ng
@@ -99,6 +102,8 @@ brew install tcptrace
 brew install ucspi-tcp # `tcpserver` etc.
 brew install homebrew/x11/xpdf
 brew install xz
+brew install zsh
+brew install direnv
 
 # Install other useful binaries.
 brew install ack
@@ -132,8 +137,15 @@ brew link libxml2 --force
 brew link libxslt --force
 
 # Install Heroku
-brew install heroku/brew/heroku
+brew tap heroku/brew
+brew install heroku
 heroku update
+
+# Install Netlify CLI
+brew install netlify-cli
+
+#Install Terraform
+brew install terraform
 
 # Core casks
 brew cask install --appdir="/Applications" alfred
@@ -142,8 +154,8 @@ brew cask install --appdir="~/Applications" java
 brew cask install --appdir="~/Applications" xquartz
 
 # Development tool casks
-brew cask install --appdir="/Applications" sublime-text
-brew cask install --appdir="/Applications" atom
+brew cask install --appdir="/Applications" visual-studio-code
+# brew cask install --appdir="/Applications" atom
 brew cask install --appdir="/Applications" virtualbox
 brew cask install --appdir="/Applications" vagrant
 brew cask install --appdir="/Applications" macdown
@@ -168,6 +180,30 @@ brew install boot2docker
 
 # Install developer friendly quick look plugins; see https://github.com/sindresorhus/quick-look-plugins
 brew cask install qlcolorcode qlstephen qlmarkdown quicklook-json qlprettypatch quicklook-csv betterzip qlimagesize webpquicklook suspicious-package quicklookase qlvideo
+
+#Make Zsh default shell
+echo "Adding the newly installed shell to the list of allowed shells"
+sudo echo /usr/local/bin/zsh >> /etc/shells
+echo 'export PATH="/usr/local/bin:$PATH"' >> ~/.zshrc
+chsh -s /usr/local/bin/zsh
+
+#Zsh plugins
+brew install antigen
+echo '#Plugins
+antigen bundle zsh-users/zsh-autosuggestions
+antigen bundle zsh-users/zsh-completions
+antigen bundle zsh-users/zsh-history-substring-search
+antigen theme robbyrussell/oh-my-zsh themes/robbyrussell
+
+# Apply Antigen
+antigen apply' >> ~/.zshrc
+
+#Add VSCode extensions
+echo "Setting up VSCode"
+code --install-extension 'dbaeumer.vscode-eslint'
+code --install-extension 'ecmel.vscode-html-css'
+code --install-extension 'esbenp.prettier-vscode'
+code --install-extension 'dracula-theme.theme-dracula'
 
 # Remove outdated versions from the cellar.
 brew cleanup
