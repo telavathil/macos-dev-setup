@@ -200,6 +200,7 @@ antigen apply' >> ~/.zshrc
 
 #Add VSCode extensions
 echo "Setting up VSCode"
+xattr -d com.apple.quarantine /Applications/Visual\ Studio\ Code.app
 code --install-extension 'dbaeumer.vscode-eslint'
 code --install-extension 'ecmel.vscode-html-css'
 code --install-extension 'esbenp.prettier-vscode'
