@@ -189,6 +189,8 @@ chsh -s /usr/local/bin/zsh
 
 #Zsh plugins
 brew install antigen
+brew tap sambadevi/powerlevel9k
+brew install powerlevel9k
 echo '#Plugins
 antigen bundle zsh-users/zsh-autosuggestions
 antigen bundle zsh-users/zsh-completions
