@@ -12,8 +12,8 @@ source /usr/local/share/antigen/antigen.zsh
 
 export LSCOLORS='exfxcxdxbxegedabagacad'
 export CLICOLOR=true
-export SUBLIME=subl
-export EDITOR="$SUBLIME -w"
+export VSCODE=code
+export EDITOR="$VSCODE -w"
 export VISUAL=$EDITOR
 export TERM="xterm-256color"
 export PAGER='less'
