@@ -104,6 +104,7 @@ brew install homebrew/x11/xpdf
 brew install xz
 brew install zsh
 brew install direnv
+brew install fzf
 
 # Install other useful binaries.
 brew install ack
