@@ -32,9 +32,9 @@ antigen bundle z
 # bundle antigen zsh plugins @ https://github.com/robbyrussell/oh-my-zsh/tree/master/plugins
 antigen bundles <<EOBUNDLES
 	common-aliases
-	history 
-	git 
-	docker 
+	history
+	git
+	docker
 	zsh_reload
 	zsh-users/zsh-completions
 	zsh-users/zsh-autosuggestions
@@ -67,6 +67,8 @@ HISTSIZE=10240000               # big history
 SAVEHIST=10240000               # big history
 LISTMAX=999999
 
+# aliases
+alias gundo='git reset --soft HEAD~1'
 
 # auto-completion with selection / menu / error correction / cache / etc...
 zstyle ':completion:*:*:*:*:*' menu select
@@ -77,7 +79,7 @@ zstyle ':completion:*' substitute 0
 zstyle ':completion:*' max-errors 2 not-numeric
 zstyle ':completion:*' original true
 zstyle ':completion:*' use-cache true
-zstyle ':completion:*' cache-path ~/.zsh/cache              
+zstyle ':completion:*' cache-path ~/.zsh/cache
 zstyle ':completion:*' accept-exact '*(N)'
 zstyle ':completion:*' file-sort links reverse
 zstyle ':completion:*:commands' rehash true
